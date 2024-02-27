@@ -1,6 +1,6 @@
 
 spring:
-  #swagger 3.0 ??? spring boot 2.6 ?? ??? strategy ?? path_pattern_parser ? ???? ????? ??
+  #swagger 3.0 -> spring boot 2.6 -> strategy path_pattern_parser changed
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

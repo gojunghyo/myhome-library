@@ -13,7 +13,8 @@ class GreetingController {
 
     @GetMapping("/greeting")
     @ApiOperation(value = "그리팅 테스트 컨트롤러")
-    fun greeting(string: String): String {
-        return "Greeting $string"
+    fun greeting(name: String?): String {
+        val result = name ?: ""
+        return "Greeting $result"
     }
 }
