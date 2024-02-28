@@ -1,7 +1,8 @@
 package com.myhome.library.dto.book
 
-
-data class BookDto(
+//대여
+data class RentalDto(
     val bookName: String,
+    val memberPhone: String,
     val isbn: String,
 )

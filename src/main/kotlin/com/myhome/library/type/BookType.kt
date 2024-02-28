@@ -5,5 +5,8 @@ enum class BookType {
     ECONOMY,
     SOCIETY,
     LANGUAGE,
-    SCIENCE
+    SCIENCE,
+    SELF, //자기개발
+    COMIC, //만화
+    NORMAL,
 }

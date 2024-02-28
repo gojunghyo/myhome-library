@@ -15,6 +15,8 @@ class MemberEntrustHistory(
 
     var status: MemberEntrustStatus = MemberEntrustStatus.ENTRUST, //위탁중
 
+    val entrustPrice: Long = 0,
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val memberEntrustSeq: Long? = null
@@ -34,6 +36,7 @@ class MemberEntrustHistory(
             bookName: String = "세이노의 가르침",
             isbn: String = "9791168473690",
             status: MemberEntrustStatus = MemberEntrustStatus.ENTRUST, //위탁중
+            entrustPrice: Long = 0,
             memberEntrustSeq: Long? = null,
         ): MemberEntrustHistory {
             return MemberEntrustHistory(
@@ -41,6 +44,7 @@ class MemberEntrustHistory(
                 bookName = bookName,
                 isbn = isbn,
                 status = status,
+                entrustPrice = entrustPrice,
                 memberEntrustSeq = memberEntrustSeq,
             )
         }

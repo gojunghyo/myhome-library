@@ -31,20 +31,35 @@ class Member(
     }
 
     fun rentalBook(book: Book) {
-        this.memberRentalHistoies.add(MemberRentalHistory.fixture(this, book.name, book.isbn))
+        this.memberRentalHistoies.add(MemberRentalHistory.fixture(this, book.name, book.isbn)) // 대여중
     }
 
     fun returnBook(bookIsbn: String) {
-        this.memberRentalHistoies.first { rentalBook -> rentalBook.isbn == bookIsbn }.doReturn()
+        this.memberRentalHistoies.first { rentalBook -> rentalBook.isbn == bookIsbn }.doReturn() // 반납으로 변경
     }
 
     fun entrustBook(book: Book) {
-        this.memberEntrustHistories.add(MemberEntrustHistory.fixture(this, book.name, book.isbn))//위탁중
+        this.memberEntrustHistories.add(MemberEntrustHistory.fixture(this, book.name, book.isbn)) //위탁중
     }
 
     fun possessionBook(bookIsbn: String) {
-        this.memberEntrustHistories.first{ entrustBook -> entrustBook.isbn == bookIsbn }.doPossession()//소유중 변경
-
+        this.memberEntrustHistories.first{ entrustBook -> entrustBook.isbn == bookIsbn }.doPossession() //소유로 변경
     }
 
+
+    companion object {
+        fun fixture(
+             name: String = "고정효",
+             email: String = "gojgho@naver.com",
+             phone: String = "010-1234-1234",
+             password: String = "AAbb1234"
+        ): Member {
+            return Member(
+                name = name,
+                email = email,
+                phone = phone,
+                password = password,
+            )
+        }
+    }
 }
