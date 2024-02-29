@@ -32,7 +32,7 @@ class BookController @Autowired constructor(
     }
 
     @GetMapping("/book/lists")
-    @ApiOperation("전체 도서 확인 Cursor 기반 Paging (20)")
+    @ApiOperation("등록된 도서 확인 Cursor 기반 Paging (20)")
     fun getBooks(@RequestParam cursorId: Long?): ResponseDto {
         val result = bookService.getBooks(cursorId)
         if(result.size < pageSize) {
