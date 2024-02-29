@@ -5,6 +5,7 @@ import com.myhome.library.dto.code.MessageCode
 import com.myhome.library.dto.member.PaginationSupport
 import com.myhome.library.dto.member.ResponseDto
 import com.myhome.library.service.book.rental.BookRentalService
+import com.myhome.library.utils.logger
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,13 +23,24 @@ class BookRentalController @Autowired constructor(
     private val rentalService: BookRentalService
 ) {
 
+    private val log = logger()
     private val pageSize = 20
+
+    /**
+     * rentalCount 대여 카운트
+     * rentalPrice 대여 가격
+     * registrationDate 등록 일
+     */
 
     @GetMapping("/book/rental/list")
     @ApiOperation("대여 가능 도서 목록 Cursor 기반 Paging (20)")
-    fun getRentalBooks(@RequestParam cursorId: Long?): ResponseDto {
-        val result = rentalService.getRentalAvailableBooks(cursorId)
-        if(result.size < pageSize) {
+    fun getRentalBooks(
+        @RequestParam cursorId: Long?,
+        @RequestParam(defaultValue = "rentalCount", required = true) sortField: String,
+        @RequestParam(defaultValue = "DESC", required = true) sortOrder: String
+    ): ResponseDto {
+        val result = rentalService.getRentalAvailableBooks(cursorId, sortField, sortOrder)
+        if (result.size < pageSize) {
             return ResponseDto(MessageCode.SUCCESS_REQUEST.message, data = result)
         }
 

@@ -32,6 +32,7 @@ class Member(
     }
 
     fun rentalBook(rentalBook: BookEntrustHistory) {
+        rentalBook.increaseRentalCount()
         this.bookRentalHistoies.add(BookRentalHistory.fixture(this, rentalBook.bookName, rentalBook.isbn)) // 대여중
     }
 

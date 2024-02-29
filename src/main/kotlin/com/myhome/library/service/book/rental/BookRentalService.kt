@@ -8,7 +8,6 @@ import com.myhome.library.dto.code.MessageCode
 import com.myhome.library.repository.book.entrust.BookEntrustRepository
 import com.myhome.library.repository.book.rental.BookRentalRepository
 import com.myhome.library.service.book.BookService
-import com.myhome.library.service.member.MemberService
 import com.myhome.library.type.BookRentalStatus
 import com.myhome.library.utils.fail
 import com.myhome.library.utils.logger
@@ -33,27 +32,39 @@ class BookRentalService @Autowired constructor(
 
 
     @Transactional(readOnly = true)
-    fun getRentalAvailableBooks(cursorId: Long?): List<RentalResponseDto> {
-        return bookEntrustRepository.findRentalAvailableBooks(cursorId)
+    fun getRentalAvailableBooks(
+        cursorId: Long?,
+        sortField: String,
+        sortOrder: String?
+    ): List<RentalResponseDto> {
+        val result = bookEntrustRepository.findRentalAvailableBooks(cursorId)
             .stream()
             .map { entrust -> RentalResponseDto.fixture(entrust) }
             .toList()
 
+        // 정렬 기능 추가
+        return when (sortField) {
+            "rentalCount" -> sortResult(result, sortOrder) { it.rentalCount }
+            "rentalPrice" -> sortResult(result, sortOrder) { it.rentalPrice }
+            "registrationDate" -> sortResult(result, sortOrder) { it.registrationDate }
+            else -> result
+        }
     }
 
     @Transactional
     fun rentalBook(rentalDto: RentalDto) {
-        //위탁된 도서 찾은후
+        //대여가 가능한 도서인지 위탁내역 확인후
         val rentalAvailableBook = bookEntrustRepository.getEntrustBookByIsbn(rentalDto.isbn) ?: fail(MessageCode.IS_NOT_EXIST_ENTRUST.message)
 
-        //대여가 이미 되어있지 않을때
+        //대여중이 아닐때
         if(bookRentalRepository.find(rentalDto.isbn, BookRentalStatus.RENTAL) != null) {
             throw IllegalArgumentException(MessageCode.IS_RENTALED.message)
         }
 
-        //대여자 폰번호로 회원 조회후
+        //대여자 폰번호로 회원 조회, 회원이 아니라면 대여 불가능
         val member = bookService.getMemberByPhone(rentalDto.memberPhone)
 
+        //대여 progress map 에 넣은후
         val returnInProgressFlag = returnInProgressMap.computeIfAbsent(rentalAvailableBook.isbn) { AtomicBoolean(false) }
         if (returnInProgressFlag.compareAndSet(false, true)) {
             try {
@@ -78,6 +89,21 @@ class BookRentalService @Autowired constructor(
             delay(delayTime)
             member.returnBook(rentalAvailableBook)
             log.info("반납완료 되었습니다.")
+        }
+    }
+
+
+    private inline fun <reified T : Comparable<T>> sortResult(
+        list: List<RentalResponseDto>,
+        sortOrder: String?,
+        crossinline selector: (RentalResponseDto) -> T?
+    ): List<RentalResponseDto> {
+        val comparator = compareBy(selector)
+
+        return when (sortOrder?.toUpperCase()) {
+            "ASC" -> list.sortedWith(comparator)
+            "DESC" -> list.sortedWith(comparator.reversed())
+            else -> list
         }
     }
 

@@ -90,68 +90,68 @@ values  (default, 9791198428547, '오늘부터 초등 지식왕', 'SELF');
 
 
 -- [BookEntrustHistory]
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서1', 1500, 9991168473691, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서1', 1700, 9991168473691, 1, 'ENTRUST', 0, current_timestamp);
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서2', 1500, 9991168473692, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서2', 1700, 9991168473692, 1, 'ENTRUST', 0, '2024-02-28 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서3', 1500, 9991168473693, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서3', 1400, 9991168473693, 1, 'ENTRUST', 0, '2024-02-27 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서4', 1500, 9991168473694, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서4', 1400, 9991168473694, 1, 'ENTRUST', 0, '2024-02-26 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서5', 1500, 9991168473695, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서5', 1500, 9991168473695, 1, 'ENTRUST', 0, '2024-02-25 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서6', 1500, 9991168473696, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서6', 1500, 9991168473696, 1, 'ENTRUST', 0, '2024-02-24 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서7', 1500, 9991168473697, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서7', 1500, 9991168473697, 1, 'ENTRUST', 0, '2024-02-23 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서8', 1500, 9991168473698, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서8', 1100, 9991168473698, 1, 'ENTRUST', 0, '2024-02-22 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서9', 1500, 9991168473699, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서9', 1200, 9991168473699, 1, 'ENTRUST', 0, '2024-02-21 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서10', 1500, 9991168473700, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서10', 1200, 9991168473700, 1, 'ENTRUST', 0, '2024-02-20 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서11', 1500, 9991168473701, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서11', 1900, 9991168473701, 1, 'ENTRUST', 0, '2024-02-19 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서12', 1500, 9991168473702, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서12', 1700, 9991168473702, 1, 'ENTRUST', 0, '2024-02-18 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서13', 1500, 9991168473703, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서13', 1500, 9991168473703, 1, 'ENTRUST', 0, '2024-02-17 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서14', 1500, 9991168473704, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서14', 1500, 9991168473704, 1, 'ENTRUST', 0, '2024-02-16 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서15', 1500, 9991168473705, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서15', 1500, 9991168473705, 1, 'ENTRUST', 0, '2024-02-15 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서16', 1500, 9991168473706, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서16', 1510, 9991168473706, 1, 'ENTRUST', 0, '2024-02-14 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서17', 1500, 9991168473707, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서17', 1310, 9991168473707, 1, 'ENTRUST', 0, '2024-02-13 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서18', 1500, 9991168473708, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서18', 1320, 9991168473708, 1, 'ENTRUST', 0, '2024-02-12 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서19', 1500, 9991168473709, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서19', 1200, 9991168473709, 1, 'ENTRUST', 0, '2024-02-11 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서20', 1500, 9991168473710, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서20', 1800, 9991168473710, 1, 'ENTRUST', 0, '2024-02-09 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서21', 1500, 9991168473711, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서21', 1700, 9991168473711, 1, 'ENTRUST', 0, '2024-02-08 19:00:05.223879');
 
-insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
-values (default, '테스트용 도서22', 1500, 9991168473712, 1, 'ENTRUST');
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status, rental_count, registration_date)
+values (default, '테스트용 도서22', 1600, 9991168473712, 1, 'ENTRUST', 0, '2024-02-07 19:00:05.223879');

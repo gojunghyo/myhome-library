@@ -27,6 +27,8 @@ create table book_entrust_history (
             status varchar(30),
             entrust_price integer,
             member_member_seq bigint,
+            rental_count bigint DEFAULT 0,
+            registration_date timestamp NULL,
             primary key (book_entrust_seq)
 );
 

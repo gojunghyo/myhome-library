@@ -1,12 +1,15 @@
 package com.myhome.library.service.book
 
 import com.myhome.library.domain.book.Book
+import com.myhome.library.domain.book.entrust.BookEntrustHistory
 import com.myhome.library.domain.member.Member
 import com.myhome.library.dto.book.BookDto
+import com.myhome.library.dto.book.EntrustDto
 import com.myhome.library.dto.book.RentalDto
 import com.myhome.library.repository.book.BookRepository
 import com.myhome.library.repository.member.MemberRepository
 import com.myhome.library.repository.book.rental.BookRentalRepository
+import com.myhome.library.service.book.entrust.BookEntrustService
 import com.myhome.library.service.book.rental.BookRentalService
 import com.myhome.library.type.BookRentalStatus
 import org.assertj.core.api.AssertionsForInterfaceTypes.assertThat
@@ -20,6 +23,7 @@ import org.springframework.boot.test.context.SpringBootTest
 class BookServiceTest @Autowired constructor(
     private val bookService: BookService,
     private val bookRepository: BookRepository,
+    private val bookEntrustService: BookEntrustService,
     private val bookRentalService: BookRentalService,
     private val bookRentalRepository: BookRentalRepository,
     private val memberRepository: MemberRepository,
@@ -49,12 +53,17 @@ class BookServiceTest @Autowired constructor(
     }
 
     @Test
-    @DisplayName("도서 대여가 정상 동작한다.")
+    @DisplayName("도서 대여, (10~20) 초후 도서 반납이 정상 동작한다.")
     fun rentalBookTest() {
         // given
-        bookRepository.save(Book.fixture("세이노의 가르침", "9791168473690"))
         val savedMember = memberRepository.save(Member.fixture("고정효", phone = "010-1234-1234"))
-        val rentalDto = RentalDto("세이노의 가르침", "010-1234-1234", "9791168473690")
+
+        bookEntrustService.entrustBook(EntrustDto.fixture(BookEntrustHistory
+            .fixture(
+                member = savedMember,
+                isbn = "9791168473690"
+                )))
+        val rentalDto = RentalDto(  memberPhone = "010-1234-1234", isbn = "9791168473690")
 
         // when
         bookRentalService.rentalBook(rentalDto)
@@ -62,8 +71,7 @@ class BookServiceTest @Autowired constructor(
         // then
         val result = bookRentalRepository.findAll()
         assertThat(result).hasSize(1)
-        assertThat(result[0].bookName).isEqualTo("세이노의 가르침")
         assertThat(result[0].member.memberSeq).isEqualTo(savedMember.memberSeq)
-        assertThat(result[0].status).isEqualTo(BookRentalStatus.RENTAL)
+        assertThat(result[0].status).isEqualTo(BookRentalStatus.RETURNED)
     }
 }
