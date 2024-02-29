@@ -1,8 +1,8 @@
 package com.myhome.library.domain.member
 
-import com.myhome.library.domain.book.Book
 import com.myhome.library.domain.book.entrust.BookEntrustHistory
 import com.myhome.library.domain.book.rental.BookRentalHistory
+import com.myhome.library.type.BookRentalStatus
 
 import javax.persistence.Entity
 import javax.persistence.*
@@ -31,12 +31,16 @@ class Member(
         }
     }
 
-    fun rentalBook(book: Book) {
-        this.bookRentalHistoies.add(BookRentalHistory.fixture(this, book.name, book.isbn)) // 대여중
+    fun rentalBook(rentalBook: BookEntrustHistory) {
+        this.bookRentalHistoies.add(BookRentalHistory.fixture(this, rentalBook.bookName, rentalBook.isbn)) // 대여중
     }
 
-    fun returnBook(bookIsbn: String) {
-        this.bookRentalHistoies.first { rentalBook -> rentalBook.isbn == bookIsbn }.doReturn() // 반납으로 변경
+    fun returnBook(returnedBook: BookEntrustHistory) {
+
+        this.bookRentalHistoies.first { rentalBook -> rentalBook.isbn == returnedBook.isbn
+                &&
+                rentalBook.status == BookRentalStatus.RENTAL
+        }.doReturn() // 반납으로 변경
     }
 
     fun entrustBook(entrustBook: BookEntrustHistory) {

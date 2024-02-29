@@ -4,11 +4,14 @@ package com.myhome.library.repository.book.entrust
 import com.myhome.library.domain.book.entrust.BookEntrustHistory
 import com.myhome.library.domain.book.entrust.QBookEntrustHistory.bookEntrustHistory
 import com.myhome.library.type.BookEntrustStatus
+import com.myhome.library.utils.logger
 import com.querydsl.jpa.impl.JPAQueryFactory
 
 class BookEntrustRepositoryCustomImpl(
     private val queryFactory: JPAQueryFactory
 ) : BookEntrustRepositoryCustom {
+
+    private val log = logger()
 
     override fun find(isbn: String, status: BookEntrustStatus): BookEntrustHistory? {
         return queryFactory.select(bookEntrustHistory)
@@ -29,5 +32,14 @@ class BookEntrustRepositoryCustomImpl(
                 bookEntrustHistory.status.eq(BookEntrustStatus.ENTRUST)
             )
             .fetch()
+    }
+
+    override fun getEntrustBookByIsbn(isbn: String): BookEntrustHistory? {
+        return queryFactory.select(bookEntrustHistory)
+            .from(bookEntrustHistory)
+            .where(
+                bookEntrustHistory.isbn.eq(isbn)
+            ).fetchOne()
+
     }
 }

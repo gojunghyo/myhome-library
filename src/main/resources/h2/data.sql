@@ -149,3 +149,9 @@ values (default, '테스트용 도서19', 1500, 9991168473709, 1, 'ENTRUST');
 
 insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서20', 1500, 9991168473710, 1, 'ENTRUST');
+
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+values (default, '테스트용 도서21', 1500, 9991168473711, 1, 'ENTRUST');
+
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+values (default, '테스트용 도서22', 1500, 9991168473712, 1, 'ENTRUST');

@@ -3,6 +3,8 @@ package com.myhome.library.domain.book.rental
 import com.myhome.library.domain.member.Member
 import com.myhome.library.type.BookRentalStatus
 import javax.persistence.Entity
+import javax.persistence.EnumType
+import javax.persistence.Enumerated
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -17,6 +19,7 @@ class BookRentalHistory(
 
     val isbn: String,
 
+    @Enumerated(EnumType.STRING)
     var status: BookRentalStatus = BookRentalStatus.RENTAL,
 
     @Id
@@ -25,7 +28,7 @@ class BookRentalHistory(
 ) {
 
     fun doReturn() {
-        this.status == BookRentalStatus.RETURNED //반납
+        this.status = BookRentalStatus.RETURNED //반납
     }
 
     companion object {

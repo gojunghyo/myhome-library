@@ -9,6 +9,8 @@ enum class MessageCode(
     SUCCESS_MEMBER_SIGNUP("회원가입이 완료되었습니다."),
     SUCCESS_BOOK_SAVED("도서가 등록되었습니다."),
     SUCCESS_REQUEST("요청이 완료되었습니다."),
+    SUCCESS_RENTAL_AFTER_RETURNED("도서 대여 -> 자동반납이 완료되었습니다."),
+
     SUCCESS_ENTRUST("도서 위탁이 완료되었습니다."),
 
 
@@ -18,11 +20,11 @@ enum class MessageCode(
     IS_NOT_VALID_ISBN("도서 등록시 ISBN은 숫자 13자리만 허용 됩니다."),
 
     IS_NOT_MEMBER("등록 되지 않은 회원 입니다."),
+    IS_NOT_EXIST_ENTRUST("위탁 가능한 도서가 아닙니다."),
+
 
     IS_ENTRUST("이미 위탁 되어있는 도서 입니다."),
     IS_RENTALED("이미 대여 중인 도서 입니다."),
-
-
     IS_EXIST_PHONE("이미 등록되어있는 핸드폰 번호입니다."),
     IS_EXIST_ISBN_BOOK("이미 등록되어있는 ISBN 번호입니다."),
 
