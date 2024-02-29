@@ -20,9 +20,5 @@ class BookRentalRepositoryCustomImpl (
             .fetchOne()
     }
 
-    override fun bookStatusIsRental(isbn: String, status: BookRentalStatus): BookRentalHistory? {
-        TODO("Not yet implemented")
-    }
-
 
 }

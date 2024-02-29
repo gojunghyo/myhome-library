@@ -5,8 +5,4 @@ import com.myhome.library.type.BookRentalStatus
 
 interface BookRentalRepositoryCustom {
     fun find(isbn: String, status: BookRentalStatus): BookRentalHistory?
-
-
-    fun bookStatusIsRental(isbn: String, status: BookRentalStatus): BookRentalHistory?
-
 }
