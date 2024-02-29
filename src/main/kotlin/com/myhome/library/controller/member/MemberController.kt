@@ -1,4 +1,4 @@
-package com.myhome.library.controller
+package com.myhome.library.controller.member
 
 import com.myhome.library.dto.code.MessageCode
 import com.myhome.library.dto.member.MemberDto
@@ -20,7 +20,7 @@ class MemberController @Autowired constructor(
 ) {
 
     @PostMapping("/member")
-    @ApiOperation("회원 가입 API")
+    @ApiOperation("회원 가입")
     fun saveMember(@RequestBody memberDto: MemberDto): ResponseDto {
         memberService.saveUser(memberDto)
         return ResponseDto(MessageCode.SUCCESS_MEMBER_SIGNUP.message)

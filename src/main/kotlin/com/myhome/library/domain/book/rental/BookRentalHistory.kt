@@ -1,7 +1,7 @@
-package com.myhome.library.domain.member.rental
+package com.myhome.library.domain.book.rental
 
 import com.myhome.library.domain.member.Member
-import com.myhome.library.type.MemberRentalStatus
+import com.myhome.library.type.BookRentalStatus
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
@@ -9,7 +9,7 @@ import javax.persistence.Id
 import javax.persistence.ManyToOne
 
 @Entity
-class MemberRentalHistory(
+class BookRentalHistory(
     @ManyToOne
     val member: Member,
 
@@ -17,7 +17,7 @@ class MemberRentalHistory(
 
     val isbn: String,
 
-    var status: MemberRentalStatus = MemberRentalStatus.RENTAL,
+    var status: BookRentalStatus = BookRentalStatus.RENTAL,
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ class MemberRentalHistory(
 ) {
 
     fun doReturn() {
-        this.status == MemberRentalStatus.RETURNED //반납
+        this.status == BookRentalStatus.RETURNED //반납
     }
 
     companion object {
@@ -34,10 +34,10 @@ class MemberRentalHistory(
             member: Member,
             bookName: String = "세이노의 가르침",
             isbn: String = "9791168473690",
-            status: MemberRentalStatus = MemberRentalStatus.RENTAL,
+            status: BookRentalStatus = BookRentalStatus.RENTAL,
             memberRentalSeq: Long? = null,
-        ): MemberRentalHistory {
-            return MemberRentalHistory(
+        ): BookRentalHistory {
+            return BookRentalHistory(
                 member = member,
                 bookName = bookName,
                 status = status,

@@ -1,3 +1,5 @@
+server:
+  port: 9090
 
 spring:
   #swagger 3.0 -> spring boot 2.6 -> strategy path_pattern_parser changed
@@ -24,8 +26,3 @@ spring:
     console:
       enabled: true
       path: '/h2-console'
-
-#  sql:
-#    init:
-#      schema-locations: classpath:/h2/schema.sql
-#      data-locations: classpath:/h2/data.sql

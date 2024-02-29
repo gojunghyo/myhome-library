@@ -1,8 +1,9 @@
 package com.myhome.library.domain.member
 
 import com.myhome.library.domain.book.Book
-import com.myhome.library.domain.member.entrust.MemberEntrustHistory
-import com.myhome.library.domain.member.rental.MemberRentalHistory
+import com.myhome.library.domain.book.entrust.BookEntrustHistory
+import com.myhome.library.domain.book.rental.BookRentalHistory
+
 import javax.persistence.Entity
 import javax.persistence.*
 
@@ -14,10 +15,10 @@ class Member(
     val password: String,
 
     @OneToMany(mappedBy = "member", cascade = [CascadeType.ALL], orphanRemoval = true)
-    val memberRentalHistoies: MutableList<MemberRentalHistory> = mutableListOf(),
+    val bookRentalHistoies: MutableList<BookRentalHistory> = mutableListOf(),
 
     @OneToMany(mappedBy = "member", cascade = [CascadeType.ALL], orphanRemoval = true)
-    val memberEntrustHistories: MutableList<MemberEntrustHistory> = mutableListOf(),
+    val bookEntrustHistories: MutableList<BookEntrustHistory> = mutableListOf(),
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,19 +32,19 @@ class Member(
     }
 
     fun rentalBook(book: Book) {
-        this.memberRentalHistoies.add(MemberRentalHistory.fixture(this, book.name, book.isbn)) // 대여중
+        this.bookRentalHistoies.add(BookRentalHistory.fixture(this, book.name, book.isbn)) // 대여중
     }
 
     fun returnBook(bookIsbn: String) {
-        this.memberRentalHistoies.first { rentalBook -> rentalBook.isbn == bookIsbn }.doReturn() // 반납으로 변경
+        this.bookRentalHistoies.first { rentalBook -> rentalBook.isbn == bookIsbn }.doReturn() // 반납으로 변경
     }
 
-    fun entrustBook(book: Book) {
-        this.memberEntrustHistories.add(MemberEntrustHistory.fixture(this, book.name, book.isbn)) //위탁중
+    fun entrustBook(entrustBook: BookEntrustHistory) {
+        this.bookEntrustHistories.add(entrustBook) //위탁중
     }
 
     fun possessionBook(bookIsbn: String) {
-        this.memberEntrustHistories.first{ entrustBook -> entrustBook.isbn == bookIsbn }.doPossession() //소유로 변경
+        this.bookEntrustHistories.first{ entrustBook -> entrustBook.isbn == bookIsbn }.doPossession() //소유로 변경
     }
 
 

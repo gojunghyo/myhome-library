@@ -1,11 +1,11 @@
-package com.myhome.library.domain.member.entrust
+package com.myhome.library.domain.book.entrust
 
 import com.myhome.library.domain.member.Member
-import com.myhome.library.type.MemberEntrustStatus
+import com.myhome.library.type.BookEntrustStatus
 import javax.persistence.*
 
 @Entity
-class MemberEntrustHistory(
+class BookEntrustHistory(
     @ManyToOne
     val member: Member,
 
@@ -13,7 +13,8 @@ class MemberEntrustHistory(
 
     val isbn: String,
 
-    var status: MemberEntrustStatus = MemberEntrustStatus.ENTRUST, //위탁중
+    @Enumerated(EnumType.STRING)
+    var status: BookEntrustStatus = BookEntrustStatus.ENTRUST, //위탁중
 
     val entrustPrice: Long = 0,
 
@@ -23,11 +24,11 @@ class MemberEntrustHistory(
 ) {
 
     val isEntrust: Boolean
-        get() = this.status == MemberEntrustStatus.POSSESSION
+        get() = this.status == BookEntrustStatus.POSSESSION
 
     //소유중
     fun doPossession() {
-        this.status == MemberEntrustStatus.POSSESSION
+        this.status == BookEntrustStatus.POSSESSION
     }
 
     companion object {
@@ -35,11 +36,11 @@ class MemberEntrustHistory(
             member: Member,
             bookName: String = "세이노의 가르침",
             isbn: String = "9791168473690",
-            status: MemberEntrustStatus = MemberEntrustStatus.ENTRUST, //위탁중
+            status: BookEntrustStatus = BookEntrustStatus.ENTRUST, //위탁중
             entrustPrice: Long = 0,
             memberEntrustSeq: Long? = null,
-        ): MemberEntrustHistory {
-            return MemberEntrustHistory(
+        ): BookEntrustHistory {
+            return BookEntrustHistory(
                 member = member,
                 bookName = bookName,
                 isbn = isbn,

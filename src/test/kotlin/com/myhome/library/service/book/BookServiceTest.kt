@@ -6,9 +6,9 @@ import com.myhome.library.dto.book.BookDto
 import com.myhome.library.dto.book.RentalDto
 import com.myhome.library.repository.book.BookRepository
 import com.myhome.library.repository.member.MemberRepository
-import com.myhome.library.repository.member.entrust.MemberEntrustRepository
-import com.myhome.library.repository.member.rental.MemberRentalRepository
-import com.myhome.library.type.MemberRentalStatus
+import com.myhome.library.repository.book.rental.BookRentalRepository
+import com.myhome.library.service.book.rental.BookRentalService
+import com.myhome.library.type.BookRentalStatus
 import org.assertj.core.api.AssertionsForInterfaceTypes.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
@@ -20,9 +20,9 @@ import org.springframework.boot.test.context.SpringBootTest
 class BookServiceTest @Autowired constructor(
     private val bookService: BookService,
     private val bookRepository: BookRepository,
+    private val bookRentalService: BookRentalService,
+    private val bookRentalRepository: BookRentalRepository,
     private val memberRepository: MemberRepository,
-    private val memberRentalRepository: MemberRentalRepository,
-    private val memberEntrustRepository: MemberEntrustRepository,
 ) {
 
     @BeforeEach
@@ -36,7 +36,7 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("도서 저장이 정상 동작한다.")
     fun saveBookTest(){
         // given
-        val newBook = BookDto("세이노의 가르침", "9791168473690")
+        val newBook = BookDto(bookName = "세이노의 가르침", isbn = "9791168473690")
 
         // when
         bookService.saveBook(newBook)
@@ -57,15 +57,13 @@ class BookServiceTest @Autowired constructor(
         val rentalDto = RentalDto("세이노의 가르침", "010-1234-1234", "9791168473690")
 
         // when
-        bookService.rentalBook(rentalDto)
+        bookRentalService.rentalBook(rentalDto)
 
         // then
-        val result = memberRentalRepository.findAll()
+        val result = bookRentalRepository.findAll()
         assertThat(result).hasSize(1)
         assertThat(result[0].bookName).isEqualTo("세이노의 가르침")
         assertThat(result[0].member.memberSeq).isEqualTo(savedMember.memberSeq)
-        assertThat(result[0].status).isEqualTo(MemberRentalStatus.RENTAL)
+        assertThat(result[0].status).isEqualTo(BookRentalStatus.RENTAL)
     }
-
-
 }

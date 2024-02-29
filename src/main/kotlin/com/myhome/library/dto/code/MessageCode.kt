@@ -8,6 +8,8 @@ enum class MessageCode(
     // Success
     SUCCESS_MEMBER_SIGNUP("회원가입이 완료되었습니다."),
     SUCCESS_BOOK_SAVED("도서가 등록되었습니다."),
+    SUCCESS_REQUEST("요청이 완료되었습니다."),
+    SUCCESS_ENTRUST("도서 위탁이 완료되었습니다."),
 
 
     // Fail
