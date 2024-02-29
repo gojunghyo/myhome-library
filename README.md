@@ -1,4 +1,3 @@
-![응답값_도서대여](https://github.com/gojunghyo/myhome-library/assets/128199051/6e1671f8-ff46-45fc-81d8-fef1f90da741)﻿# myhome-library
 
 ## Swagger UI 주소
 ```
