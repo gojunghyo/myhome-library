@@ -21,7 +21,7 @@ class BookRentalHistory(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val memberRentalSeq: Long? = null
+    val bookRentalSeq: Long? = null
 ) {
 
     fun doReturn() {
@@ -35,14 +35,14 @@ class BookRentalHistory(
             bookName: String = "세이노의 가르침",
             isbn: String = "9791168473690",
             status: BookRentalStatus = BookRentalStatus.RENTAL,
-            memberRentalSeq: Long? = null,
+            bookRentalSeq: Long? = null,
         ): BookRentalHistory {
             return BookRentalHistory(
                 member = member,
                 bookName = bookName,
                 status = status,
                 isbn = isbn,
-                memberRentalSeq = memberRentalSeq
+                bookRentalSeq = bookRentalSeq
             )
         }
 

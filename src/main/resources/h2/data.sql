@@ -90,62 +90,62 @@ values  (default, 9791198428547, '오늘부터 초등 지식왕', 'SELF');
 
 
 -- [BookEntrustHistory]
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서1', 1500, 9991168473691, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서2', 1500, 9991168473692, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서3', 1500, 9991168473693, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서4', 1500, 9991168473694, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서5', 1500, 9991168473695, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서6', 1500, 9991168473696, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서7', 1500, 9991168473697, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서8', 1500, 9991168473698, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서9', 1500, 9991168473699, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서10', 1500, 9991168473700, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서11', 1500, 9991168473701, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서12', 1500, 9991168473702, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서13', 1500, 9991168473703, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서14', 1500, 9991168473704, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서15', 1500, 9991168473705, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서16', 1500, 9991168473706, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서17', 1500, 9991168473707, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서18', 1500, 9991168473708, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서19', 1500, 9991168473709, 1, 'ENTRUST');
 
-insert into book_entrust_history (member_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
+insert into book_entrust_history (book_entrust_seq, book_name, entrust_price, isbn, member_member_seq, status)
 values (default, '테스트용 도서20', 1500, 9991168473710, 1, 'ENTRUST');

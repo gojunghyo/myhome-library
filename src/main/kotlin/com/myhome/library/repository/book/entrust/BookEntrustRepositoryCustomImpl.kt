@@ -20,4 +20,14 @@ class BookEntrustRepositoryCustomImpl(
             .limit(1)
             .fetchOne()
     }
+
+    override fun findRentalAvailableBooks(cursorId: Long?): List<BookEntrustHistory> {
+        return queryFactory.select(bookEntrustHistory)
+            .from(bookEntrustHistory)
+            .where(
+                bookEntrustHistory.bookEntrustSeq.gt(cursorId),
+                bookEntrustHistory.status.eq(BookEntrustStatus.ENTRUST)
+            )
+            .fetch()
+    }
 }

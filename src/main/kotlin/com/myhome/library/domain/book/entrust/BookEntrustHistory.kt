@@ -20,7 +20,7 @@ class BookEntrustHistory(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val memberEntrustSeq: Long? = null
+    val bookEntrustSeq: Long? = null
 ) {
 
     val isEntrust: Boolean
@@ -38,7 +38,7 @@ class BookEntrustHistory(
             isbn: String = "9791168473690",
             status: BookEntrustStatus = BookEntrustStatus.ENTRUST, //위탁중
             entrustPrice: Long = 0,
-            memberEntrustSeq: Long? = null,
+            bookEntrustSeq: Long? = null,
         ): BookEntrustHistory {
             return BookEntrustHistory(
                 member = member,
@@ -46,7 +46,7 @@ class BookEntrustHistory(
                 isbn = isbn,
                 status = status,
                 entrustPrice = entrustPrice,
-                memberEntrustSeq = memberEntrustSeq,
+                bookEntrustSeq = bookEntrustSeq,
             )
         }
 

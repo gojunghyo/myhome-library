@@ -36,7 +36,7 @@ class BookController @Autowired constructor(
     fun getBooks(@RequestParam cursorId: Long?): ResponseDto {
         val result = bookService.getBooks(cursorId)
         if(result.size < pageSize) {
-          return ResponseDto(MessageCode.SUCCESS_REQUEST.message,null, result)
+          return ResponseDto(MessageCode.SUCCESS_REQUEST.message, data = result)
         }
 
         return ResponseDto(MessageCode.SUCCESS_REQUEST.message, PaginationSupport(cursorId), result)

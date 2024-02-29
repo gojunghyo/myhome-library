@@ -1,5 +1,6 @@
 package com.myhome.library.service.book.rental
 
+import com.myhome.library.domain.book.entrust.BookEntrustHistory
 import com.myhome.library.dto.book.RentalDto
 import com.myhome.library.dto.code.MessageCode
 import com.myhome.library.repository.book.entrust.BookEntrustRepository
@@ -32,9 +33,7 @@ class BookRentalService @Autowired constructor(
     }
 
     @Transactional(readOnly = true)
-    fun getRentalAvailableBooks() {
-
-
+    fun getRentalAvailableBooks(cursorId: Long?): List<BookEntrustHistory> {
+       return bookEntrustRepository.findRentalAvailableBooks(cursorId)
     }
-
 }
