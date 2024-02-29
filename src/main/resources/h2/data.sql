@@ -2,6 +2,8 @@
 insert into member (member_seq, email, name, password, phone)
 values (default, 'gojgho@naver.com', '고정효', 'aabb123', '010-1234-1234');
 
+insert into member (member_seq, email, name, password, phone)
+values (default, 'woodo@naver.com', '우도', 'AA123', '010-7777-7777');
 
 -- [BOOK] ADD TYPE = [COMPUTER ECONOMY SOCIETY LANGUAGE SCIENCE SELF COMIC NORMAL]
 
